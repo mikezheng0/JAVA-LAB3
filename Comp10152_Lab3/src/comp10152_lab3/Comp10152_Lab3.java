@@ -1,7 +1,9 @@
 /**
- * COMP10152 - Lab#3 Starter Code 
- * @author C. Mark Yendt
+ * COMP10152 - Lab#3 
+ * 
  * @version 1.0 (May 2014)
+ * I Mike Zheng, 000348657 certify that this material is my original work. No other person's work has been 
+ * used without due acknowledgment. I have not made my work available to anyone else.
  */
 
 package comp10152_lab3;
@@ -11,7 +13,10 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
-
+/** This class uses the word class to make some statistical data 
+ * 
+ * @author Mike Zheng
+ */
 public class Comp10152_Lab3 {
 
   /**
@@ -32,6 +37,7 @@ public class Comp10152_Lab3 {
         String fileWord = fin.next().toLowerCase();
         if (fileWord.length() > 0)
         {
+            //does the total count
             countTotalWords++;
             Word temp = new Word(fileWord);
             int index = list.indexOf(temp);
@@ -55,7 +61,8 @@ public class Comp10152_Lab3 {
     System.out.println("There are a total of "+list.size()+" different words in the file.");
     System.out.println("There are a total of "+countTotalWords+" words in the file.");
     System.out.println("The list of the 10 most frequent words and counts : ");
-    Collections.sort(list); 
+    Collections.sort(list);
+    //top 10 counts
     for (int i = 0; i < 10; i++)
     {
         System.out.printf("%2d : %s\n",i+1,list.get(i).toString());
@@ -64,8 +71,10 @@ public class Comp10152_Lab3 {
     for (int i = 0; i < list.size(); i++)
     {
         int tempCount = 0;
+        //finds all the ones with a count of 13 
         if (list.get(i).getCount()==13)
             System.out.print(list.get(i).toString());
+        //counts every work that has s in its string
         for (int j = 0; j < list.get(i).getWord().length(); j++)
         {
             if ((list.get(i).getWord().charAt(j))=='s')
@@ -76,7 +85,6 @@ public class Comp10152_Lab3 {
             countOfWords++;
         }
     }
-    System.out.printf("\nThere are %d different words that contain more than one 's'.", countOfWords);
+    System.out.printf("\nThere are %d different words that contain more than one 's'.\n", countOfWords);
   }
 }
-
